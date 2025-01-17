@@ -4,6 +4,7 @@ using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250117143309_AddLaptopImages")]
+    partial class AddLaptopImages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -329,6 +332,30 @@ namespace API.Migrations
                         });
                 });
 
+            modelBuilder.Entity("API.Models.LaptopImage", b =>
+                {
+                    b.Property<int>("ImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImageId"));
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SerialNumber")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.HasKey("ImageId");
+
+                    b.HasIndex("SerialNumber");
+
+                    b.ToTable("LaptopImages");
+                });
+
             modelBuilder.Entity("API.Models.Assignment", b =>
                 {
                     b.HasOne("API.Models.Employee", "Employee")
@@ -346,6 +373,22 @@ namespace API.Migrations
                     b.Navigation("Employee");
 
                     b.Navigation("Laptop");
+                });
+
+            modelBuilder.Entity("API.Models.LaptopImage", b =>
+                {
+                    b.HasOne("API.Models.Laptop", "Laptop")
+                        .WithMany("Images")
+                        .HasForeignKey("SerialNumber")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Laptop");
+                });
+
+            modelBuilder.Entity("API.Models.Laptop", b =>
+                {
+                    b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
         }

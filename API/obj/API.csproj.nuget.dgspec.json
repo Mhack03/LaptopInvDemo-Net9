@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ASP .NET CORE\\LaptopInventory\\API\\API.csproj": {}
+    "D:\\ASP .NET CORE\\LaptopInventory\\api\\API.csproj": {}
   },
   "projects": {
-    "D:\\ASP .NET CORE\\LaptopInventory\\API\\API.csproj": {
+    "D:\\ASP .NET CORE\\LaptopInventory\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASP .NET CORE\\LaptopInventory\\API\\API.csproj",
+        "projectUniqueName": "D:\\ASP .NET CORE\\LaptopInventory\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\ASP .NET CORE\\LaptopInventory\\API\\API.csproj",
+        "projectPath": "D:\\ASP .NET CORE\\LaptopInventory\\api\\API.csproj",
         "packagesPath": "C:\\Users\\markm\\.nuget\\packages\\",
-        "outputPath": "D:\\ASP .NET CORE\\LaptopInventory\\API\\obj\\",
+        "outputPath": "D:\\ASP .NET CORE\\LaptopInventory\\api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -65,6 +65,22 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[9.0.1, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Serilog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

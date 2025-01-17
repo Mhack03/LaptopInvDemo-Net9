@@ -7,7 +7,8 @@ namespace API.Models.Dto
         public int EmployeeId { get; set; }
         [Required] 
         public string Name { get; set; } = string.Empty; 
-        [Required][EmailAddress] 
+        [Required]
+        [EmailAddress] 
         public string Email { get; set; } = string.Empty; 
         [Required] 
         public string Department { get; set; } = string.Empty; 

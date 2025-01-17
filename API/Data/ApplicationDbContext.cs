@@ -5,8 +5,9 @@ namespace API.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<Employee> Employees { get; set; }
         public DbSet<Laptop> Laptops { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Assignment> Assignments { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -23,7 +24,7 @@ namespace API.Data
             modelBuilder.Entity<Employee>()
                 .Property(e => e.EmployeeId)
                 .UseIdentityColumn(seed: 1001, increment: 1);
-
+            
             // Seed data for Laptop
             modelBuilder.Entity<Laptop>().HasData(
                 new Laptop
@@ -141,6 +142,50 @@ namespace API.Data
                     Position = "Designer"
                 }
             );
+
+            // Seed data for Assignment
+            modelBuilder.Entity<Assignment>().HasData(
+                new Assignment
+                {
+                    AssignmentId = 1,
+                    LaptopSerialNumber = "TZJHkvhCOe",
+                    EmployeeId = 1001,
+                    AssignedDate = new DateTime(2025, 1, 17),
+                    ReturnDate = new DateTime(2025, 2, 17)
+                },
+                new Assignment
+                {
+                    AssignmentId = 2,
+                    LaptopSerialNumber = "AQ5RrvbFR1",
+                    EmployeeId = 1002,
+                    AssignedDate = new DateTime(2025, 1, 18),
+                    ReturnDate = new DateTime(2025, 2, 17)
+                },
+                new Assignment   {
+                    AssignmentId = 3,
+                    LaptopSerialNumber = "jdEluAbfxz",
+                    EmployeeId = 1003,
+                    AssignedDate = new DateTime(2025, 1, 19),
+                    ReturnDate = new DateTime(2025, 2, 17)
+                },
+                new Assignment
+                {
+                    AssignmentId = 4,
+                    LaptopSerialNumber = "fI5D0yyqxc",
+                    EmployeeId = 1004,
+                    AssignedDate = new DateTime(2025, 1, 20),
+                    ReturnDate = new DateTime(2025, 2, 17)
+                },
+                new Assignment
+                {
+                    AssignmentId = 5,
+                    LaptopSerialNumber = "Drjg7rPPIb",
+                    EmployeeId = 1005,
+                    AssignedDate = new DateTime(2025, 1, 21),
+                    ReturnDate = new DateTime(2025, 2, 17)
+                }
+            );
+
         }
     }
 }

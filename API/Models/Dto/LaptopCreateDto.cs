@@ -6,7 +6,6 @@ namespace API.Models.Dto
     {
         [Required]
         [StringLength(60)]
-        [RegularExpression(@"^[A-Z0-9]+$")]
         public string SerialNumber { get; set; } = string.Empty;
         [Required]
         public Brand Brand { get; set; }

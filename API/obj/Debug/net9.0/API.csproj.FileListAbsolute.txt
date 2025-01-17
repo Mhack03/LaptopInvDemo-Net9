@@ -167,3 +167,13 @@ D:\ASP .NET CORE\LaptopInventory\API\bin\Debug\net9.0\runtimes\win\lib\net6.0\Sy
 D:\ASP .NET CORE\LaptopInventory\API\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\ASP .NET CORE\LaptopInventory\API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\ASP .NET CORE\LaptopInventory\API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\ASP .NET CORE\LaptopInventory\API\obj\Debug\net9.0\API.sourcelink.json
+D:\ASP .NET CORE\LaptopInventory\api\bin\Debug\net9.0\Serilog.dll
+D:\ASP .NET CORE\LaptopInventory\api\bin\Debug\net9.0\Serilog.AspNetCore.dll
+D:\ASP .NET CORE\LaptopInventory\api\bin\Debug\net9.0\Serilog.Extensions.Hosting.dll
+D:\ASP .NET CORE\LaptopInventory\api\bin\Debug\net9.0\Serilog.Extensions.Logging.dll
+D:\ASP .NET CORE\LaptopInventory\api\bin\Debug\net9.0\Serilog.Formatting.Compact.dll
+D:\ASP .NET CORE\LaptopInventory\api\bin\Debug\net9.0\Serilog.Settings.Configuration.dll
+D:\ASP .NET CORE\LaptopInventory\api\bin\Debug\net9.0\Serilog.Sinks.Console.dll
+D:\ASP .NET CORE\LaptopInventory\api\bin\Debug\net9.0\Serilog.Sinks.Debug.dll
+D:\ASP .NET CORE\LaptopInventory\api\bin\Debug\net9.0\Serilog.Sinks.File.dll
