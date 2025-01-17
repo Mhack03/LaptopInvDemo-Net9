@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lfmoxsRrUxM=",
+  "dgSpecHash": "NWd18t98OOc=",
   "success": true,
-  "projectFilePath": "D:\\ASP .NET CORE\\LaptopInventory\\api\\API.csproj",
+  "projectFilePath": "D:\\ASP .NET CORE\\LaptopInventory\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\markm\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\markm\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
