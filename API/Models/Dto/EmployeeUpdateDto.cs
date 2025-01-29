@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace API.Models.Dtos
+namespace API.Models.Dto
 {
     public class EmployeeUpdateDto
     {

@@ -4,6 +4,7 @@ using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250129055628_EmployeeNameAssignmentClass")]
+    partial class EmployeeNameAssignmentClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,9 +35,6 @@ namespace API.Migrations
 
                     b.Property<DateTime>("AssignedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Department")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
@@ -63,7 +63,6 @@ namespace API.Migrations
                         {
                             AssignmentId = 1,
                             AssignedDate = new DateTime(2025, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Sales",
                             EmployeeId = 1001,
                             EmployeeName = "John Doe",
                             LaptopSerialNumber = "TZJHkvhCOe",
@@ -73,7 +72,6 @@ namespace API.Migrations
                         {
                             AssignmentId = 2,
                             AssignedDate = new DateTime(2025, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Developer",
                             EmployeeId = 1002,
                             EmployeeName = "Jane Smith",
                             LaptopSerialNumber = "AQ5RrvbFR1",
@@ -83,7 +81,6 @@ namespace API.Migrations
                         {
                             AssignmentId = 3,
                             AssignedDate = new DateTime(2025, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Developer",
                             EmployeeId = 1003,
                             EmployeeName = "Alice Johnson",
                             LaptopSerialNumber = "jdEluAbfxz",
@@ -93,7 +90,6 @@ namespace API.Migrations
                         {
                             AssignmentId = 4,
                             AssignedDate = new DateTime(2025, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Developer",
                             EmployeeId = 1004,
                             EmployeeName = "Bob Williams",
                             LaptopSerialNumber = "fI5D0yyqxc",
@@ -103,7 +99,6 @@ namespace API.Migrations
                         {
                             AssignmentId = 5,
                             AssignedDate = new DateTime(2025, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Developer",
                             EmployeeId = 1005,
                             EmployeeName = "Emily Brown",
                             LaptopSerialNumber = "Drjg7rPPIb",

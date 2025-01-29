@@ -4,6 +4,7 @@ using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250118105751_ChangePKForLaptop")]
+    partial class ChangePKForLaptop
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,19 +36,15 @@ namespace API.Migrations
                     b.Property<DateTime>("AssignedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Department")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<string>("EmployeeName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("LaptopId")
+                        .HasColumnType("int");
 
                     b.Property<string>("LaptopSerialNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(60)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ReturnDate")
                         .HasColumnType("datetime2");
@@ -54,7 +53,7 @@ namespace API.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.HasIndex("LaptopSerialNumber");
+                    b.HasIndex("LaptopId");
 
                     b.ToTable("Assignments");
 
@@ -63,9 +62,7 @@ namespace API.Migrations
                         {
                             AssignmentId = 1,
                             AssignedDate = new DateTime(2025, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Sales",
                             EmployeeId = 1001,
-                            EmployeeName = "John Doe",
                             LaptopSerialNumber = "TZJHkvhCOe",
                             ReturnDate = new DateTime(2025, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -73,9 +70,7 @@ namespace API.Migrations
                         {
                             AssignmentId = 2,
                             AssignedDate = new DateTime(2025, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Developer",
                             EmployeeId = 1002,
-                            EmployeeName = "Jane Smith",
                             LaptopSerialNumber = "AQ5RrvbFR1",
                             ReturnDate = new DateTime(2025, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -83,9 +78,7 @@ namespace API.Migrations
                         {
                             AssignmentId = 3,
                             AssignedDate = new DateTime(2025, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Developer",
                             EmployeeId = 1003,
-                            EmployeeName = "Alice Johnson",
                             LaptopSerialNumber = "jdEluAbfxz",
                             ReturnDate = new DateTime(2025, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -93,9 +86,7 @@ namespace API.Migrations
                         {
                             AssignmentId = 4,
                             AssignedDate = new DateTime(2025, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Developer",
                             EmployeeId = 1004,
-                            EmployeeName = "Bob Williams",
                             LaptopSerialNumber = "fI5D0yyqxc",
                             ReturnDate = new DateTime(2025, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -103,9 +94,7 @@ namespace API.Migrations
                         {
                             AssignmentId = 5,
                             AssignedDate = new DateTime(2025, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Developer",
                             EmployeeId = 1005,
-                            EmployeeName = "Emily Brown",
                             LaptopSerialNumber = "Drjg7rPPIb",
                             ReturnDate = new DateTime(2025, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -200,9 +189,11 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Laptop", b =>
                 {
-                    b.Property<string>("SerialNumber")
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                    b.Property<int>("LaptopId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LaptopId"), 1001L);
 
                     b.Property<int>("Brand")
                         .HasColumnType("int");
@@ -222,12 +213,6 @@ namespace API.Migrations
                     b.Property<bool>("HasMouse")
                         .HasColumnType("bit");
 
-                    b.Property<int>("LaptopId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LaptopId"), 1001L);
-
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -246,6 +231,11 @@ namespace API.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("SerialNumber")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -254,93 +244,93 @@ namespace API.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("SerialNumber");
+                    b.HasKey("LaptopId");
 
                     b.ToTable("Laptops");
 
                     b.HasData(
                         new
                         {
-                            SerialNumber = "TZJHkvhCOe",
+                            LaptopId = 1001,
                             Brand = 0,
                             Description = "Lightweight and portable laptop for everyday use.",
                             HasBag = true,
                             HasCharger = true,
                             HasKeyboard = false,
                             HasMouse = false,
-                            LaptopId = 1001,
                             Model = "Swift 3",
                             OperatingSystem = 1,
                             Processor = "Intel Core i5",
                             Ram = "8GB",
+                            SerialNumber = "TZJHkvhCOe",
                             Status = 0,
                             Storage = "256GB SSD"
                         },
                         new
                         {
-                            SerialNumber = "AQ5RrvbFR1",
+                            LaptopId = 1002,
                             Brand = 2,
                             Description = "Stylish and powerful laptop for professionals.",
                             HasBag = true,
                             HasCharger = true,
                             HasKeyboard = false,
                             HasMouse = false,
-                            LaptopId = 1002,
                             Model = "Zenbook 14",
                             OperatingSystem = 1,
                             Processor = "AMD Ryzen 7",
                             Ram = "16GB",
+                            SerialNumber = "AQ5RrvbFR1",
                             Status = 0,
                             Storage = "512GB SSD"
                         },
                         new
                         {
-                            SerialNumber = "jdEluAbfxz",
+                            LaptopId = 1003,
                             Brand = 3,
                             Description = "Premium ultrabook with excellent display.",
                             HasBag = true,
                             HasCharger = true,
                             HasKeyboard = false,
                             HasMouse = false,
-                            LaptopId = 1003,
                             Model = "XPS 13",
                             OperatingSystem = 1,
                             Processor = "Intel Core i7",
                             Ram = "16GB",
+                            SerialNumber = "jdEluAbfxz",
                             Status = 0,
                             Storage = "1TB SSD"
                         },
                         new
                         {
-                            SerialNumber = "fI5D0yyqxc",
+                            LaptopId = 1004,
                             Brand = 4,
                             Description = "Versatile 2-in-1 laptop.",
                             HasBag = true,
                             HasCharger = true,
                             HasKeyboard = false,
                             HasMouse = false,
-                            LaptopId = 1004,
                             Model = "Spectre x360",
                             OperatingSystem = 1,
                             Processor = "Intel Core i7",
                             Ram = "16GB",
+                            SerialNumber = "fI5D0yyqxc",
                             Status = 0,
                             Storage = "1TB SSD"
                         },
                         new
                         {
-                            SerialNumber = "Drjg7rPPIb",
+                            LaptopId = 1005,
                             Brand = 5,
                             Description = "Business-oriented laptop.",
                             HasBag = true,
                             HasCharger = true,
                             HasKeyboard = false,
                             HasMouse = false,
-                            LaptopId = 1005,
                             Model = "ThinkPad X1 Carbon",
                             OperatingSystem = 1,
                             Processor = "Intel Core i7",
                             Ram = "32GB",
+                            SerialNumber = "Drjg7rPPIb",
                             Status = 0,
                             Storage = "1TB SSD"
                         });
@@ -349,25 +339,18 @@ namespace API.Migrations
             modelBuilder.Entity("API.Models.Assignment", b =>
                 {
                     b.HasOne("API.Models.Employee", "Employee")
-                        .WithMany("Assignments")
+                        .WithMany()
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("API.Models.Laptop", "Laptop")
                         .WithMany()
-                        .HasForeignKey("LaptopSerialNumber")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("LaptopId");
 
                     b.Navigation("Employee");
 
                     b.Navigation("Laptop");
-                });
-
-            modelBuilder.Entity("API.Models.Employee", b =>
-                {
-                    b.Navigation("Assignments");
                 });
 #pragma warning restore 612, 618
         }

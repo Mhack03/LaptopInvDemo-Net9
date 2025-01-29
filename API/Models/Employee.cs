@@ -17,7 +17,7 @@ namespace API.Models
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
 
-        // public ICollection<Assignment> Assignments { get; set; }
+        public ICollection<Assignment> Assignments { get; set; }
 
     }
 

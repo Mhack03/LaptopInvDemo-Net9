@@ -1,3 +1,4 @@
+using API;
 using API.Data;
 using API.Middleware;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,8 @@ builder.Host.UseSerilog();
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

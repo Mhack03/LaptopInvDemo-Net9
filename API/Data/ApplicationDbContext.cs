@@ -150,6 +150,8 @@ namespace API.Data
                     AssignmentId = 1,
                     LaptopSerialNumber = "TZJHkvhCOe",
                     EmployeeId = 1001,
+                    EmployeeName = "John Doe",
+                    Department = "Sales",
                     AssignedDate = new DateTime(2025, 1, 17),
                     ReturnDate = new DateTime(2025, 2, 17)
                 },
@@ -158,6 +160,8 @@ namespace API.Data
                     AssignmentId = 2,
                     LaptopSerialNumber = "AQ5RrvbFR1",
                     EmployeeId = 1002,
+                    EmployeeName = "Jane Smith",
+                    Department = "Developer",
                     AssignedDate = new DateTime(2025, 1, 18),
                     ReturnDate = new DateTime(2025, 2, 17)
                 },
@@ -165,6 +169,8 @@ namespace API.Data
                     AssignmentId = 3,
                     LaptopSerialNumber = "jdEluAbfxz",
                     EmployeeId = 1003,
+                    EmployeeName = "Alice Johnson",
+                    Department = "Developer",
                     AssignedDate = new DateTime(2025, 1, 19),
                     ReturnDate = new DateTime(2025, 2, 17)
                 },
@@ -173,6 +179,8 @@ namespace API.Data
                     AssignmentId = 4,
                     LaptopSerialNumber = "fI5D0yyqxc",
                     EmployeeId = 1004,
+                    EmployeeName = "Bob Williams",
+                    Department = "Developer",
                     AssignedDate = new DateTime(2025, 1, 20),
                     ReturnDate = new DateTime(2025, 2, 17)
                 },
@@ -181,6 +189,8 @@ namespace API.Data
                     AssignmentId = 5,
                     LaptopSerialNumber = "Drjg7rPPIb",
                     EmployeeId = 1005,
+                    EmployeeName = "Emily Brown",
+                    Department = "Developer",
                     AssignedDate = new DateTime(2025, 1, 21),
                     ReturnDate = new DateTime(2025, 2, 17)
                 }

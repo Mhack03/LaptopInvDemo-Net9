@@ -4,6 +4,7 @@ using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250129053413_MakeReturnDateNullable")]
+    partial class MakeReturnDateNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,15 +36,8 @@ namespace API.Migrations
                     b.Property<DateTime>("AssignedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Department")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
-
-                    b.Property<string>("EmployeeName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LaptopSerialNumber")
                         .IsRequired()
@@ -63,9 +59,7 @@ namespace API.Migrations
                         {
                             AssignmentId = 1,
                             AssignedDate = new DateTime(2025, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Sales",
                             EmployeeId = 1001,
-                            EmployeeName = "John Doe",
                             LaptopSerialNumber = "TZJHkvhCOe",
                             ReturnDate = new DateTime(2025, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -73,9 +67,7 @@ namespace API.Migrations
                         {
                             AssignmentId = 2,
                             AssignedDate = new DateTime(2025, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Developer",
                             EmployeeId = 1002,
-                            EmployeeName = "Jane Smith",
                             LaptopSerialNumber = "AQ5RrvbFR1",
                             ReturnDate = new DateTime(2025, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -83,9 +75,7 @@ namespace API.Migrations
                         {
                             AssignmentId = 3,
                             AssignedDate = new DateTime(2025, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Developer",
                             EmployeeId = 1003,
-                            EmployeeName = "Alice Johnson",
                             LaptopSerialNumber = "jdEluAbfxz",
                             ReturnDate = new DateTime(2025, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -93,9 +83,7 @@ namespace API.Migrations
                         {
                             AssignmentId = 4,
                             AssignedDate = new DateTime(2025, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Developer",
                             EmployeeId = 1004,
-                            EmployeeName = "Bob Williams",
                             LaptopSerialNumber = "fI5D0yyqxc",
                             ReturnDate = new DateTime(2025, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -103,9 +91,7 @@ namespace API.Migrations
                         {
                             AssignmentId = 5,
                             AssignedDate = new DateTime(2025, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = "Developer",
                             EmployeeId = 1005,
-                            EmployeeName = "Emily Brown",
                             LaptopSerialNumber = "Drjg7rPPIb",
                             ReturnDate = new DateTime(2025, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
