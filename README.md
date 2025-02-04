@@ -1,6 +1,6 @@
-# My Self-Learning Project
+# My Self-Learning Project Journey
 
-Welcome to my GitHub repository! This project is dedicated to my self-learning journey, where I apply the knowledge and skills I've gained from my studies. The primary goal of this project is to develop and improve my skills in using various tools and technologies.
+Welcome to my GitHub repository! This project is dedicated to my self-learning journey, where I applied the knowledge and skills I've gained from my studies. The primary goal of this project is to develop and improve my skills in using various tools and technologies.
 
 ## Purpose
 
@@ -21,6 +21,6 @@ This project is for educational and self-improvement purposes only. The code and
 
 ## Contact
 
-If you have any questions or suggestions, feel free to reach out to me at mark.mordido@gmail.com.
+If you have any questions or suggestions, feel free to contact me at mark.mordido@gmail.com.
 
 Thank you for visiting my repository!
